@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ungelo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e6f7ff, #b3e5fc); /* 渐变色背景 */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #0056b3; /* 深蓝色标题 */
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #007bff; /* 蓝色按钮 */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        button:hover {
+            background-color: #0056b3; /* 深蓝色悬停效果 */
+            transform: translateY(-3px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #joke {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #004080; /* 深蓝色文字 */
+            font-weight: bold;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate__animated animate__bounceIn">Ungelo</h1>
+        <p>点击按钮，看看会发生什么！</p>
+        <button onclick="showJoke()">点我！</button>
+        <div id="joke" class="animate__animated"></div>
+    </div>
+
+    <div class="footer">
+        <p>免责声明：本网站内容纯属娱乐，切勿当真！</p>
+    </div>
+
+    <script>
+        // 恶搞内容数组
+        const jokes = [
+            "你知道吗？鸡其实是从恐龙进化来的！",
+            "科学家发现，猫其实是外星人派来监视我们的！",
+            "最新研究：每天吃10个冰淇淋可以让你变得更聪明！",
+            "震惊！地球其实是平的，只是被一只巨大的乌龟背着！",
+            "专家建议：每天对着镜子笑10分钟，镜子也会对你笑！",
+            "小道消息：Ungelo其实是宇宙的终极答案！",
+            "研究发现：熬夜会让你变成超级赛亚人！",
+            "内部消息：月球上其实有一个巨大的奶酪工厂！",
+            "专家警告：每天喝奶茶会让你变成一只猫！",
+            "惊天秘密：Ungelo其实是时间旅行者的代号！"
+        ];
+
+        // 显示随机恶搞内容
+        function showJoke() {
+            const jokeElement = document.getElementById('joke');
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+
+            // 添加动画效果
+            jokeElement.classList.remove('animate__fadeIn');
+            jokeElement.offsetHeight; // 触发重绘
+            jokeElement.classList.add('animate__fadeIn');
+
+            jokeElement.innerText = randomJoke;
+        }
+    </script>
+</body>
+</html>
